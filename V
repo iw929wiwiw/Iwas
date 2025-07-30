@@ -30,7 +30,6 @@ local brainrotGods = {
     ["Torrtuginni Dragonfrutini"] = true,
     ["Chimpanzini Spiderini"] = true,
     ["Sammyini Spidreini"] = true,
-    ["La Vacca Saturno Saturnita"] = true,
 }
 
 local specialForThirdWebhook = {
