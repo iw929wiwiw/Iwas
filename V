@@ -9,16 +9,16 @@ if game.PlaceId ~= allowedPlaceId then return end
 
 local webhookUrls = {
     "https://l.webhook.party/hook/1xAhO58c9OQ9HvdARJ1ALxCECIgPSUU0MSzWxwJHjb8lgTM1zXk6E5MEsCno97549o5XTqVfCX4i4mtuSEBHEwWvY6yAvQuNLHIr9agO9ituVxjPkVR8EdE7Uj5LP0aEeYSqhmRm40fte65mochwUnjyDak72j17rn9Ewud%2BIHzaPLqi6XHDP8%2B%2F7UO%2FA168iISyCBDgvyFCBHn%2FQiSdoBQk0LNJgtBY1HL7gtT2zXgIRkJaZhGORwpI8XAR2YOZyxw4mY2qs2XwPZ4wcfvhHDh3bQKU8dAPtYnEcMbjMUIjm9%2FWd64G2qExLYU66SiAV%2BY5mu4hGD4zGKl2sLuZzOl%2BZbH%2BUI6Wr1ol85VWexSgQGNpF3x0QCvGtziaH4WEQarqZvQYH2A%3D/66SBmIIo8EOCGU6b",
-    
     "https://l.webhook.party/hook/JRBvG8WJBX%2FnaTRK3UJCaU%2B2Mme6kx9Y548oJVYcIdse1GPbb6IJOthUtWmRSNMq0cLpCk3Qg13DQfldwJu%2BJ0AHoyFtTeVUvccE9k8rKsHr3R5ZZ%2FicSG6mRKvqNJxWk4u9SxTJPEYmAe11qhYN39hPVzeQLK3pZqfx2KrfGnF04dkXZ1X3Fl0tlsdl%2B4jQKLQedqbbdd2BHXca1hXpIj3zf7qPw6xHYSTL4fI4s15QM%2FcgvKULbZ5ZP6D5u%2FlRXk8PU%2BPT03L%2FiODDnua53Qny4QKawTouTdZ1uldaFxKdAliSdCqQyXEKSkx9y0%2BbjfYxEU6Ke8wD7MTXrnGDQokbVWaQ17cS%2FA81pfcUX07kA%2F25qTVQ35nu9khqn%2FbG102QA%2BHicag%3D/YGdEQdFOJs0DeCJV"
 }
 local extraWebhookUrl = "https://l.webhook.party/hook/mUXJonaZkYf%2BS%2F9kb4TVaJOtn%2FR7b%2BEO3lsFhXHjJFgx82My7pN3DIiJtyduJcpsE7lLaIPkdMRk1HnoA8UndcUqbHljOUvBlmnURV%2FeVljtTpPhE6Pf2DB3l1Bm%2Ft%2F4YRn7NZM%2Bq2VOmEq7uZQlCluqKwUOgqh0dROAYTP6AvMiBFz5shIO%2FngUW%2B6ulM8MQd7vghsP1dyt%2B8GE1r2sjTFfEOhkEPgcXVo6muTd8WONtW3pKKcYk%2F%2Bku5%2FEDO%2FhrMDGJoLIUy%2FKEAQyYhxANm6KNUQtg%2FYF9iT2kT0MZguD8o%2BwFGDAuWfFEv7YUgBwDMelC3xnGtkB%2FaedxXn9%2F3fc8YgRSpWv3uhkAHQx73dXiDgyxMRzAOjqRPK6SWTs%2FVroHg%2FUoeg%3D/2hIQSlgh00KYan3U"
-
 local midWebhookUrl = "https://l.webhook.party/hook/AmFvHpxZUTUlB6w5eEKDov30wA7PQF%2FNkFAxcCseyDFQXnS0IBFx4TL1murG7TPeJANgE84VTmaiNTEtxamrNu4HKQmh0LQhUrqQVBXSi2Hafkdgc6tm0M1jWDIq1PKCc03k7l9LzRE9xnJUUxZvfhkuD%2F9LP9p3ngF2ecUL1pUBtV9y2cnxzBWz%2FJwD1z0p%2B5hRX5zLU9ugYu3KCHY0244nbClWS3HIIK7CjrDkhGfmGTLaGNofP%2BpqNbruoI3bO20hsMHzowTCShM0HNU0IDDaFHdwT2%2FqVQFZKGZ8l%2FyMnRit%2Fb2vmDHVOq8R8RvLTUOrzZh9tOE5zEw23C%2B7LPDooTKt10mqedisP6Zr11XXDdYhRN2Xx9tbZ7xPWE5%2F8sV67Iw5NHk%3D/FicKE70vtHZ7bLnz"
 
 local brainrotGods = {
+    ["Dragon Cannelloni"] = true,
     ["Garama and Madundung"] = true,
     ["Nuclearo Dinossauro"] = true,
+    ["Los Combinasionas"] = true,
     ["La Grande Combinasion"] = true,
     ["Chicleteira Bicicleteira"] = true,
     ["Secret Lucky Block"] = true,
@@ -27,14 +27,18 @@ local brainrotGods = {
     ["Las Vaquitas Saturnitas"] = true,
     ["Las Tralaleritas"] = true,
     ["Los Tralaleritos"] = true,
+    ["Agarrini la Palini"] = true,
     ["Torrtuginni Dragonfrutini"] = true,
     ["Chimpanzini Spiderini"] = true,
     ["Sammyini Spidreini"] = true,
+    ["La Vacca Saturno Saturnita"] = true,
 }
 
 local specialForThirdWebhook = {
+    ["Dragon Cannelloni"] = true,
     ["Garama And Madundung"]     = true,
     ["Nuclearo Dinossauro"]      = true,
+    ["Los Combinasionas"] = true,
     ["La Grande Combinasion"]    = true,
     ["Chicleteira Bicicleteira"] = true,
     ["Secret Lucky Block"]       = true,
@@ -133,7 +137,7 @@ end
 local function sendNotification(modelName, mutation, moneyText)
     if isPrivateServer() then return end
 
-    -- ✅ Only allow player count 3–7, skip 5
+    -- âœ… Only allow player count 3â€“7, skip 5
     local playerCount = getLeaderstatPlayerCount()
     if playerCount < 6 or playerCount > 7 or playerCount == 5 then return end
 
@@ -152,13 +156,13 @@ local function sendNotification(modelName, mutation, moneyText)
     local msg = string.format([[
 ---- %s
 
----- Secret Is Found ✅ ----
+---- Secret Is Found âœ… ----
 
---- 📢 Game: %s
---- 💡 Model Name: "%s"
---- 🎨 Mutation: %s
---- 💸 Money/s: %s
---- 👥 Player Count: %d/8
+--- ðŸ“¢ Game: %s
+--- ðŸ’¡ Model Name: "%s"
+--- ðŸŽ¨ Mutation: %s
+--- ðŸ’¸ Money/s: %s
+--- ðŸ‘¥ Player Count: %d/8
 
 local player = game.Players:GetPlayers()[1]
 game:GetService("TeleportService"):TeleportToPlaceInstance("%s", "%s", player)
@@ -197,11 +201,11 @@ local function checkBrainrots()
                 local id = model:GetDebugId()
                 if not notified[id] then
                     local color = root.Color
-                    local mutation = "🕳️"
-                    if colorsAreClose(color, colorGold) then mutation = "🌕 Gold"
-                    elseif colorsAreClose(color, colorDiamond) then mutation = "💎 Diamond"
-                    elseif colorsAreClose(color, colorCandy) then mutation = "🍬 Candy"
-                    elseif isRainbowMutating(model) then mutation = "🌈 Rainbow" end
+                    local mutation = "ðŸ•³ï¸"
+                    if colorsAreClose(color, colorGold) then mutation = "ðŸŒ• Gold"
+                    elseif colorsAreClose(color, colorDiamond) then mutation = "ðŸ’Ž Diamond"
+                    elseif colorsAreClose(color, colorCandy) then mutation = "ðŸ¬ Candy"
+                    elseif isRainbowMutating(model) then mutation = "ðŸŒˆ Rainbow" end
 
                     local money = findNearbyMoneyText(root.Position + Vector3.new(0,2,0), 6) or "N/A"
                     sendNotification(model.Name, mutation, money)
