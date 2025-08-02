@@ -16,35 +16,35 @@ local extraWebhookUrl = "https://l.webhook.party/hook/mUXJonaZkYf%2BS%2F9kb4TVaJ
 local midWebhookUrl   = "https://l.webhook.party/hook/AmFvHpxZUTUlB6w5eEKDov30wA7PQF%2FNkFAxcCseyDFQXnS0IBFx4TL1murG7TPeJANgE84VTmaiNTEtxamrNu4HKQmh0LQhUrqQVBXSi2Hafkdgc6tm0M1jWDIq1PKCc03k7l9LzRE9xnJUUxZvfhkuD%2F9LP9p3ngF2ecUL1pUBtV9y2cnxzBWz%2FJwD1z0p%2B5hRX5zLU9ugYu3KCHY0244nbClWS3HIIK7CjrDkhGfmGTLaGNofP%2BpqNbruoI3bO20hsMHzowTCShM0HNU0IDDaFHdwT2%2FqVQFZKGZ8l%2FyMnRit%2Fb2vmDHVOq8R8RvLTUOrzZh9tOE5zEw23C%2B7LPDooTKt10mqedisP6Zr11XXDdYhRN2Xx9tbZ7xPWE5%2F8sV67Iw5NHk%3D/FicKE70vtHZ7bLnz"
 
 local brainrotGods = {
-    ["Dragon Cannelloni"]         = true,
-    ["Garama and Madundung"]      = true,
-    ["Nuclearo Dinossauro"]       = true,
-    ["Los Combinasionas"]         = true,
-    ["La Grande Combinasion"]     = true,
-    ["Chicleteira Bicicleteira"]  = true,
-    ["Secret Lucky Block"]        = true,
-    ["Pot Hotspot"]               = true,
-    ["Graipuss Medussi"]          = true,
-    ["Las Vaquitas Saturnitas"]   = true,
-    ["Las Tralaleritas"]          = true,
-    ["Los Tralaleritos"]          = true,
-    ["Agarrini la Palini"]        = true,
-    ["Torrtuginni Dragonfrutini"] = true,
-    ["Chimpanzini Spiderini"]     = true,
-    ["Sammyini Spidreini"]        = true,
-    ["La Vacca Saturno Saturnita"]= true,
+    ["dragon cannelloni"] = true,
+    ["garama and madundung"] = true,
+    ["nuclearo dinossauro"] = true,
+    ["los combinasionas"] = true,
+    ["la grande combinasion"] = true,
+    ["chicleteira bicicleteira"] = true,
+    ["secret lucky block"] = true,
+    ["pot hotspot"] = true,
+    ["graipuss medussi"] = true,
+    ["las vaquitas saturnitas"] = true,
+    ["las tralaleritas"] = true,
+    ["los tralaleritos"] = true,
+    ["agarrini la palini"] = true,
+    ["torrtuginni dragonfrutini"] = true,
+    ["chimpanzini spiderini"] = true,
+    ["sammyini spidreini"] = true,
+    ["la vacca saturno saturnita"] = true,
 }
 
 local specialForThirdWebhook = {
-    ["Dragon Cannelloni"]         = true,
-    ["Garama And Madundung"]      = true,
-    ["Nuclearo Dinossauro"]       = true,
-    ["Los Combinasionas"]         = true,
-    ["La Grande Combinasion"]     = true,
-    ["Chicleteira Bicicleteira"]  = true,
-    ["Secret Lucky Block"]        = true,
-    ["Pot Hotspot"]               = true,
-    ["Graipuss Medussi"]          = true,
+    ["dragon cannelloni"] = true,
+    ["garama and madundung"] = true,
+    ["nuclearo dinossauro"] = true,
+    ["los combinasionas"] = true,
+    ["la grande combinasion"] = true,
+    ["chicleteira bicicleteira"] = true,
+    ["secret lucky block"] = true,
+    ["pot hotspot"] = true,
+    ["graipuss medussi"] = true,
 }
 
 local colorGold     = Color3.fromRGB(237, 178, 0)
@@ -93,10 +93,6 @@ local function sendNotification(modelName, mutation, moneyText)
     local joinLink = string.format("https://kengerken.github.io/join/?placeId=%s&gameInstanceId=%s", placeId, jobId)
     local gameName = "Unknown" pcall(function() gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name end)
 
-    local tpMobile = string.format("`local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)`", placeId, jobId)
-    local tpIOS    = string.format("``local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)``", placeId, jobId)
-    local tpPC     = string.format("```lua\nlocal p=game.Players:GetPlayers()[1]\ngame:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)\n```", placeId, jobId)
-
     local msg = string.format([[
 ---- %s
 
@@ -108,15 +104,17 @@ local function sendNotification(modelName, mutation, moneyText)
 --- 💸 Money/s: %s
 --- 👥 Player Count: %d/8
 
---- 📲 **Mobile Copy:**  
-%s
+--- 📲 Mobile Copy  
+--- local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
 
---- 🍏 **iOS Copy:**  
-%s
+--- 🍏 iOS Copy  
+--- local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
 
---- 💻 **PC Copy:**  
-%s
-]], joinLink, gameName, modelName, mutation, moneyText or "N/A", playerCount, tpMobile, tpIOS, tpPC)
+--- 💻 PC Copy  
+--- local p=game.Players:GetPlayers()[1]
+--- game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
+]], joinLink, gameName, modelName, mutation, moneyText or "N/A", playerCount,
+    placeId, jobId, placeId, jobId, placeId, jobId)
 
     if msg == lastSentMessage then return end
     lastSentMessage = msg
@@ -130,7 +128,8 @@ local function sendNotification(modelName, mutation, moneyText)
         pcall(function() req({ Url = url, Method = "POST", Headers = headers, Body = data }) end)
     end
 
-    if specialForThirdWebhook[modelName] then
+    local lowerModel = modelName:lower()
+    if specialForThirdWebhook[lowerModel] then
         pcall(function() req({ Url = midWebhookUrl,   Method = "POST", Headers = headers, Body = data }) end)
         pcall(function() req({ Url = extraWebhookUrl, Method = "POST", Headers = headers, Body = data }) end)
     end
@@ -138,21 +137,24 @@ end
 
 local function checkBrainrots()
     for _, m in ipairs(Workspace:GetChildren()) do
-        if m:IsA("Model") and brainrotGods[m.Name] then
-            local root = getPrimaryPart(m)
-            if root then
-                local id = m:GetDebugId()
-                if not notified[id] then
-                    local col = root.Color
-                    local mut = "🕳️"
-                    if colorsAreClose(col, colorGold)    then mut = "🌕 Gold"
-                    elseif colorsAreClose(col, colorDiamond) then mut = "💎 Diamond"
-                    elseif colorsAreClose(col, colorCandy)   then mut = "🍬 Candy"
-                    elseif isRainbowMutating(m)             then mut = "🌈 Rainbow" end
+        if m:IsA("Model") then
+            local lowerName = m.Name:lower()
+            if brainrotGods[lowerName] then
+                local root = getPrimaryPart(m)
+                if root then
+                    local id = m:GetDebugId()
+                    if not notified[id] then
+                        local col = root.Color
+                        local mut = "🕳️"
+                        if colorsAreClose(col, colorGold)    then mut = "🌕 Gold"
+                        elseif colorsAreClose(col, colorDiamond) then mut = "💎 Diamond"
+                        elseif colorsAreClose(col, colorCandy)   then mut = "🍬 Candy"
+                        elseif isRainbowMutating(m)             then mut = "🌈 Rainbow" end
 
-                    local money = findNearbyMoneyText(root.Position + Vector3.new(0,3,0), 6.5) or "N/A"
-                    sendNotification(m.Name, mut, money)
-                    notified[id] = true
+                        local money = findNearbyMoneyText(root.Position + Vector3.new(0,3,0), 6.5) or "N/A"
+                        sendNotification(m.Name, mut, money)
+                        notified[id] = true
+                    end
                 end
             end
         end
