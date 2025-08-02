@@ -93,6 +93,10 @@ local function sendNotification(modelName, mutation, moneyText)
     local joinLink = string.format("https://kengerken.github.io/join/?placeId=%s&gameInstanceId=%s", placeId, jobId)
     local gameName = "Unknown" pcall(function() gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name end)
 
+    local tpMobile = string.format("`local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)`", placeId, jobId)
+    local tpIOS    = string.format("``local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)``", placeId, jobId)
+    local tpPC     = string.format("```lua\nlocal p=game.Players:GetPlayers()[1]\ngame:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)\n```", placeId, jobId)
+
     local msg = string.format([[
 ---- %s
 
@@ -104,17 +108,15 @@ local function sendNotification(modelName, mutation, moneyText)
 --- 💸 Money/s: %s
 --- 👥 Player Count: %d/8
 
---- 📲 Mobile Copy  
---- local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
+--- 📲 **Mobile Copy:**  
+%s
 
---- 🍏 iOS Copy  
---- local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
+--- 🍏 **iOS Copy:**  
+%s
 
---- 💻 PC Copy  
---- local p=game.Players:GetPlayers()[1]
---- game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)
-]], joinLink, gameName, modelName, mutation, moneyText or "N/A", playerCount,
-    placeId, jobId, placeId, jobId, placeId, jobId)
+--- 💻 **PC Copy:**  
+%s
+]], joinLink, gameName, modelName, mutation, moneyText or "N/A", playerCount, tpMobile, tpIOS, tpPC)
 
     if msg == lastSentMessage then return end
     lastSentMessage = msg
