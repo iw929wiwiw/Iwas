@@ -90,7 +90,7 @@ local function sendNotification(modelName, mutation, moneyText)
 
     local placeId  = tostring(game.PlaceId)
     local jobId    = game.JobId
-    local joinLink = string.format("https://kengerken.github.io/join/?placeId=%s&gameInstanceId=%s", placeId, jobId)
+    local joinLink = string.format("https://kengerken.github.io/kengerken-joiner/?placeId=%s&gameInstanceId=%s", placeId, jobId)
     local gameName = "Unknown" pcall(function() gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name end)
 
     local tpMobile = string.format("`local p=game.Players:GetPlayers()[1];game:GetService('TeleportService'):TeleportToPlaceInstance('%s','%s',p)`", placeId, jobId)
