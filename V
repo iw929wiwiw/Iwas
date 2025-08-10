@@ -26,6 +26,7 @@ local brainrotGods = {
     ["chicleteira bicicleteira"] = true,
     ["secret lucky block"] = true,
     ["pot hotspot"] = true,
+    ["Karkerkar Kurkur"] = true,
     ["graipuss medussi"] = true,
     ["las vaquitas saturnitas"] = true,
     ["las tralaleritas"] = true,
